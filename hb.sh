@@ -4,7 +4,7 @@
 export cache1="raicache01:38080"
 export cache2="raicache02:38080"
 # rv service that has _TIC.RSF.> broadcast feed
-export feed_network="-sservice 3333"
+export feed_network="-service 3333"
 # rv service that hs RSF.> subscription
 export sub_network="-service 4444"
 # rv service to publish HB subjects
