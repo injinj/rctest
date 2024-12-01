@@ -1,0 +1,15 @@
+[Unit]
+Description=Container %i
+Documentation=man:systemd-nspawn(1)
+PartOf=machines.target
+Before=machines.target
+
+[Service]
+ExecStart=/usr/bin/systemd-nspawn -q --keep-unit -b --link-journal=try-guest --network-bridge=br0 -n --private-users=no --settings=override --template=/var/lib/machines/rocky9 --directory=/var/lib/machines/%i --hostname=%i --bind /home:/home:norbind
+KillMode=mixed
+Type=notify
+RestartForceExitStatus=133
+SuccessExitStatus=133
+Slice=machine.slice
+Delegate=yes
+TasksMax=16384
