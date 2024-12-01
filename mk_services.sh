@@ -1,3 +1,5 @@
+#!/bin/bash
+
 hosts=$(cat hosts.txt)
 cwd=$(pwd)
 
