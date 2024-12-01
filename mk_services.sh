@@ -1,7 +1,7 @@
 hosts=$(cat hosts.txt)
 cwd=$(pwd)
 
-raims_cfg_file="${cwd}/config.yaml"
+raims_cfg_file="${cwd}/network.yaml"
 cat > raims.service <<XXX
 [Unit]
 Description=raims
