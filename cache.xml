@@ -1,0 +1,27 @@
+<raicache-config>
+  <sass-config tss-records="tss_records.cf" tss-fields="tss_fields.cf"
+               cfile-separator=";" cfile-path="/usr/rai/rmds-config"
+               appendix-a="RDMFieldDictionary"
+               enumtype-def="enumtype.def"/>
+  <log-config log-level="minor" log-file="/var/log/raicache.log"/>
+
+  <protocol-rv listen-sass-dict="true" daemon="tcp:7500" service="3333">
+    <source subject="RSF" broadcast-feed="_TIC.RSF.&gt;" />
+  </protocol-rv>
+  <protocol-rv listen-sass-dict="true" daemon="tcp:7500" service="4444">
+    <source subject="RSF" subscriber-listen="RSF.&gt;" />
+  </protocol-rv>
+
+  <cluster cluster-name="test">
+    <server server-name="raicache01">
+      <cache-config disk-limit="1gb" msg-store-txlog="/var/run/msglog.dat" msg-store-partition="/var/run/msg.dat"/>
+      <admin-http address="tcp/:38080" />
+    </server>
+    <server server-name="raicache02">
+      <cache-config disk-limit="1gb" msg-store-txlog="/var/run/msglog.dat" msg-store-partition="/var/run/msg.dat"/>
+      <admin-http address="tcp/:38080" />
+    </server>
+    <ft-protocol-rv7 service="7555" daemon="tcp:7500"/>
+  </cluster>
+
+</raicache-config>

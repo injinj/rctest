@@ -1,0 +1,12 @@
+sv01
+sv02
+sv03
+sv04
+sv05
+sv06
+sv07
+sv08
+proxy01
+proxy02
+raicache01
+raicache02

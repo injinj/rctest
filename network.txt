@@ -1,0 +1,10 @@
+node raicache01 raicache02 proxy01 proxy02 sv01 sv02 sv03 sv04 sv05 sv06 sv07 sv08
+mesh_a_mesh sv01 sv02 sv03 sv04 sv05 sv06 sv07 sv08 proxy01 proxy02 : 1000_100_0/4
+mesh_b_mesh sv01 sv02 sv03 sv04 sv05 sv06 sv07 sv08 proxy01 proxy02 : 1000_100_1/4
+mesh_c_mesh sv01 sv02 sv03 sv04 sv05 sv06 sv07 sv08 proxy01 proxy02 : 1000_100_2/4
+mesh_d_mesh sv01 sv02 sv03 sv04 sv05 sv06 sv07 sv08 proxy01 proxy02 : 1000_100_3/4
+tcp_primary_pr   raicache01 proxy01 : 10000_100_0/2
+tcp_secondary_pr raicache02 proxy01 : 10000_100_1/2
+tcp_primary_sv   raicache01 proxy02 : 10000_50_0/2
+tcp_secondary_sv raicache02 proxy02 : 10000_50_1/2
+mesh_mesh_a raicache01 raicache02

@@ -1,0 +1,302 @@
+services:
+  - svc: network
+    create: 1733043721.059130413
+    pri: IwCdwtgQh6nN1fkFkqWZjH82CdiBRK/ddNEh9A6IiKPrn4Pc+vmz13T1/ZXUrhR7dMLLpg
+    pub: WpQcHAqs7O62XUutMWnFXZQsZHhU5f/R5RVPpsAsR3RYChuqbQUuPE2iUlvr7HiYUWveKA
+    users:
+      "proxy01": "IU8jSv+JkaM8R0r1XWyk5KShwlS9G7VKssVtf4PEuOyDZXLAHMrvw1csVOILchH0q1TMXFo+XGORcV6KCqjZWBs4yEnhDSmUHWub28U5a5WD4iJe"
+      "proxy02": "ESoOQuNxHxNOOeWkrA2ofOw4Nxy22uCqTv14L6KGjG0+IlTmOwbymmcbZyp0W1MQ41PqFH81XuI1AkswUAjjmzgORUqRzAEEcZEkoBLc6nSqhgWn"
+      "raicache01": "VufnQAs92tm6PMvLGYRKSS/rewWyg3hMP8XUjNPlE0GQUVpOJuFKu7ZvYuG+Zbgxf5KEhhKV7XrUBTu81BYVb7tp/zqEgbsZs2YMpTqBhJZ98oCa"
+      "raicache02": "iDccCyflAU0peXH37lXUTRVPlqiNayiQ+l/bNYFzxTlCtDNetVYfReVN/cDgYLQBvsN27MKt4QP/4yBmKWdZDzsQhBUODRL+n38u3WDk9rVJsImT"
+      "sv01": "qKg1S4xQe1FDf6nQJiXWStJVA+L6kukLWPWLrWB9FPikyYup0FfUGzMmTNLhAN5VSsswCBZnspusnVkwaMGlDK/BlwkWb5EiXpoz230nQ6ZCuKZg"
+      "sv02": "+gwyIBQH4mzd/+06dtRhfc0Qh8Wl2KUuygWknUQWFt31DNwX9/4BynSiUAyAlU32wHhHx+w5BUIxuKnMnNKgMI//LCKrld1rly7OL2ehVuRT8CB8"
+      "sv03": "X5ec74az1rjTKxj4K/3EZUsJoTekD9LGjBoL4sAYKSWfIqnInI6T24IbhAJ4E2DtV0YeJZceJU0g0ZCW8pJjO3culy4jIaIU1lqYNdLG/qgDAy0B"
+      "sv04": "rMi1CQf4da0m1cIftD+kWUZk5XF16CGrpWprR9wqWQCTJvznHtEvXC32tbN3yVUd1QUVu4nFq/hzZZ+7U9zI2tCGOziv+hgx2epBNzXuffs7Ngr/"
+      "sv05": "cIvvxlx82xNgaoHVaMsMF99YiAClmVTaFRKockdGjUGDkyC8Z+x27hztxLUPjs6vzaACdxXdepGAqFTK28cMML8Mt8oadVF++Eum/+Ck+sjURM9w"
+      "sv06": "ISZdzhAplO3Zm5oA4OskCt1Owptjf921Q6EYx87h/0N3mjz2X+zV2yC0Q448Qbw1/CmmPk3dcWMshSK9ol4lAL9k5IP7ofmqUIcjjxAYxctnU8jD"
+      "sv07": "UxPVeLnwBcDBIiqXfwsI1MhMSFf/mauD5SHmccy58Mi5jLo7/GFBZb95/eXHhfAjTM5ia3NNSPphyLYoUYCQwbBHVi48PF7vceBwNkvlYfps5V2a"
+      "sv08": "lM+FTnC0np/7gXeJdWdjH7ksdsrIcZuQyakrFjlappvQlkSN6VGmo7FqL6Mj33a9L6c8/TgtOV85t0xVbsmaEUIPryc6etpH1vamCBO9fPhCoOki"
+parameters:
+  salt_data: bETjkHBcbco0fHPF32pMZqsdcjdupK3wOn54FnjmkvuSbxtf/ys/DrmLyb8OeGwQe/LKVaoOx414+e71iLhsW9ZrVquRlXJPuE20seZv5Qynt5hx3JoJUIChVnbk5z7BG5SlOVZgCl5FveQY41wSfTmucKA9yx0lIF1RGU4U96BhTzyfYeWRn6QMa34RRpZmTAuIs7PWBWSySvm8bchlMObIhjBRtk9ziH3QhakIY06gQ+nhY9skvSODPKWrWub1hBiUHzV9sGPKE/TUt6LlYJzTiuMV3lVmzN0iWv4AqrcUBxvPlnM1dxUSJ9AwFxKetSXCQJh2lQA7EovDaHnAFX2UcJThrEbBaGYrPgoA+CD2Ywe5lFLAbVQd8S286MnS8ednlkd+Hh+1CSBPP0Mw5lw/+iA77VyN20h+oPs9qNU//RUtBOFnB+a5GHROj/dR8qXcz/SxmlhjwfTG7l+qVpB0UjiRv0wkvmiwRAb2ptQQlPUOMCGccaK4pNPVEqHZ+MKdhHDDEl0lus9nSJadUiEtzwaOU0EOatXVrcd2bWKwIkNWuvOnXxom85ul/Sk7LDce17WjCd+MtDwY8PVcUYkI3MMqPXfCI1FSM1W+v9uxOKe3n84NxvkJsK81Gf21eHQAHMETyx8ZF+G+/O9E4k/hRel1MTnVE0TYNRwzzkHK+t7rwbFckwCDb84suW43GcUT7+oY6UDrQ4uYsAzNUa90Rimir20P0EDnodINm6zsRGE2I3b7e63M0MUOiQ3zF9o8/JqWwM/eM4R1cXN4r3gQtIG1m5gUiqg7ntITnzcE+Vm2QghSNYE8Pvm7xfWypCGwbMYe5cVnOpT4waWibQ
+  pass_data: Q92GUMzUIB1yRclZcLjlQUaTuOTHwttKYRWwS9ikblQ
+  pub_window_size: 16MB
+  sub_window_size: 16MB
+  pub_window_count: 400000
+  blocked_read_rate: 50MB
+  tcp_noencrypt: true
+  tcp_connect_timeout: 0
+  reliability: 10 secs
+transports:
+  - tport: rvd
+    type: rv
+    route:
+      port: 7500
+      listen: *
+      no_fakeip: true
+  - tport: tel
+    type: telnet
+    route:
+      listen: *
+      port: 2222
+  - tport: www
+    type: web
+    route:
+      listen: *
+      port: 8080
+  - tport: primary_pr
+    type: tcp
+    route:
+      port: 5000
+      listen: *
+      connect: raicache01
+      cost: 10000_100_0/2
+  - tport: primary_sv
+    type: tcp
+    route:
+      port: 5001
+      listen: *
+      connect: raicache01
+      cost: 10000_50_0/2
+  - tport: secondary_pr
+    type: tcp
+    route:
+      port: 5002
+      listen: *
+      connect: raicache02
+      cost: 10000_100_1/2
+  - tport: secondary_sv
+    type: tcp
+    route:
+      port: 5003
+      listen: *
+      connect: raicache02
+      cost: 10000_50_1/2
+  - tport: mesh_a
+    type: mesh
+    route:
+      port: 5004
+      listen: *
+      connect: [ raicache01, raicache02 ]
+  - tport: a_mesh
+    type: mesh
+    route:
+      port: 5005
+      listen: *
+      connect: [ proxy01, proxy02, sv01, sv02, sv03, sv04, sv05, sv06, sv07, sv08 ]
+      cost: 1000_100_0/4
+  - tport: b_mesh
+    type: mesh
+    route:
+      port: 5006
+      listen: *
+      connect: [ proxy01, proxy02, sv01, sv02, sv03, sv04, sv05, sv06, sv07, sv08 ]
+      cost: 1000_100_1/4
+  - tport: c_mesh
+    type: mesh
+    route:
+      port: 5007
+      listen: *
+      connect: [ proxy01, proxy02, sv01, sv02, sv03, sv04, sv05, sv06, sv07, sv08 ]
+      cost: 1000_100_2/4
+  - tport: d_mesh
+    type: mesh
+    route:
+      port: 5008
+      listen: *
+      connect: [ proxy01, proxy02, sv01, sv02, sv03, sv04, sv05, sv06, sv07, sv08 ]
+      cost: 1000_100_3/4
+# ms_server -d network.yaml -u raicache01 -t primary_pr.listen primary_sv.listen mesh_a.connect
+users:
+  - user: raicache01
+    svc: network
+    create: 1733043721.059245329
+    pri: yYiJdUtFh9m6ZX3PD95sUmcdHI58IdPpID8M73ge3lPQ7yZByXbdpMpTnEtQNQYGdmDRdQ
+    pub: O9UxR40uqCp51112dSrwjTErMlWQYVbN1ho5t0CtSUoY6crZ0ha29rkfjkYa9jziVfsnpw
+    startup:
+      listen:
+        - tel
+        - rvd
+        - www
+        - primary_pr
+        - primary_sv
+      connect:
+        - mesh_a
+# ms_server -d network.yaml -u raicache02 -t secondary_pr.listen secondary_sv.listen mesh_a.connect
+  - user: raicache02
+    svc: network
+    create: 1733043721.059268252
+    pri: 6CAElDNPe96OG2G37J+KVRaYtGixDp9Zc4y0fZVilmEC34Dz/GIITv3YbIsqF87UpWRAcQ
+    pub: STEOQCUD/RsqDE2KYAYMM7upyQnzE9ecw++tEnf7h/oFojNSfFNmXv7v2Js8Tm/hNTogIw
+    startup:
+      listen:
+        - tel
+        - rvd
+        - www
+        - secondary_pr
+        - secondary_sv
+      connect:
+        - mesh_a
+# ms_server -d network.yaml -u proxy01 -t primary_pr.connect secondary_pr.connect a_mesh.connect b_mesh.connect c_mesh.connect d_mesh.connect
+  - user: proxy01
+    svc: network
+    create: 1733043721.059198882
+    pri: MLabS0FtFIc2VP/w4zGRZrAvTwALkNx4VRrwLnNN47VgGwh+WBCP1EJxLYFXt7O4LO8jiw
+    pub: Grz/ilpp1jX0+as3wFeYeYLI1i0soom5+zMxcHdW2SmbK/dglYUt7E9uBDs5Sbq/R2DRRQ
+    startup:
+      listen:
+        - tel
+        - rvd
+        - www
+      connect:
+        - primary_pr
+        - secondary_pr
+        - a_mesh
+        - b_mesh
+        - c_mesh
+        - d_mesh
+# ms_server -d network.yaml -u proxy02 -t primary_sv.connect secondary_sv.connect a_mesh.connect b_mesh.connect c_mesh.connect d_mesh.connect
+  - user: proxy02
+    svc: network
+    create: 1733043721.059222496
+    pri: eNBGHfdeI3F6NC+6yNHs1LS38zRONlmb6iNbaaIwMYxMDtvRGtidnURdIo57DpGdAJrtgw
+    pub: wJOAnu60QiGAe06dfm8LoRObBbVzB2Z4Zn5xBlFXyxA7in4AvMvpjCjEtsmVuAy5ctDrJw
+    startup:
+      listen:
+        - tel
+        - rvd
+        - www
+      connect:
+        - primary_sv
+        - secondary_sv
+        - a_mesh
+        - b_mesh
+        - c_mesh
+        - d_mesh
+# ms_server -d network.yaml -u sv01 -t a_mesh.connect b_mesh.connect c_mesh.connect d_mesh.connect
+  - user: sv01
+    svc: network
+    create: 1733043721.059290815
+    pri: 0Q6DdSIoeSOAkwMsVt5zs8dkfm291PPXPPKOtmB+KaJ+a7oJq5c5XNS3+h5JMvSEIHevWw
+    pub: u8bM+HYpACW1hNJXgcpLbbVOBLARYNs/OIDRkn7IznS+NW7msFbKIpO4vK06ioyWz55hQw
+    startup:
+      listen:
+        - tel
+        - rvd
+        - www
+      connect:
+        - a_mesh
+        - b_mesh
+        - c_mesh
+        - d_mesh
+# ms_server -d network.yaml -u sv02 -t a_mesh.connect b_mesh.connect c_mesh.connect d_mesh.connect
+  - user: sv02
+    svc: network
+    create: 1733043721.059313868
+    pri: b4rwojMvvJjp8Iu/lJTf/YFDlRqVMg/5zMmaZc92GFCwpEOLbZyc0H4qkcbkWvnDJL/DBg
+    pub: UA28s9LBefgNM+5wADcQXwNfq2Zs+lIUUWsGPCHweh7amoIclI8Pw7wQIOA59toAbylTvA
+    startup:
+      listen:
+        - tel
+        - rvd
+        - www
+      connect:
+        - a_mesh
+        - b_mesh
+        - c_mesh
+        - d_mesh
+# ms_server -d network.yaml -u sv03 -t a_mesh.connect b_mesh.connect c_mesh.connect d_mesh.connect
+  - user: sv03
+    svc: network
+    create: 1733043721.059336661
+    pri: 54Gh0e0cpspEviETMaoYEAWPHUktKt8YOL8nPtYWbPolUbdLS6rvjNgiCR1ZtplXHXTPuQ
+    pub: P+uCISyEkgqalMmiO8tA/SoXklerz3qMWzX13ILmbXIwn6L2hoxAPf2NOe2Gydy55ikWKA
+    startup:
+      listen:
+        - tel
+        - rvd
+        - www
+      connect:
+        - a_mesh
+        - b_mesh
+        - c_mesh
+        - d_mesh
+# ms_server -d network.yaml -u sv04 -t a_mesh.connect b_mesh.connect c_mesh.connect d_mesh.connect
+  - user: sv04
+    svc: network
+    create: 1733043721.059358543
+    pri: O7KGFGqzur0XRNWZ9tz17POb+VzUgxF1fGxoGUkzsdF6B7VbLo+VJyu92997ohupS6AKIA
+    pub: tD3Yq29yaiUrsKIOlDf8Y+wsaqkxiBLk9GD9CcG4J2KyBvQTtFvMc7jAqmvBzDwBXVH3LQ
+    startup:
+      listen:
+        - tel
+        - rvd
+        - www
+      connect:
+        - a_mesh
+        - b_mesh
+        - c_mesh
+        - d_mesh
+# ms_server -d network.yaml -u sv05 -t a_mesh.connect b_mesh.connect c_mesh.connect d_mesh.connect
+  - user: sv05
+    svc: network
+    create: 1733043721.059381266
+    pri: LyLXWLruAEvDUeGbOGw7pR8onYjqM9jHUuY74sryDjHLiFpxnrPJcdD0xbcGqjRU/NwNqw
+    pub: zaicTM6KCcGZjvAnuaIVsibCnAf+0yPIYgP/3YLTldwY/EvmEQYjfVfTF8iOXsLOLhFLtQ
+    startup:
+      listen:
+        - tel
+        - rvd
+        - www
+      connect:
+        - a_mesh
+        - b_mesh
+        - c_mesh
+        - d_mesh
+# ms_server -d network.yaml -u sv06 -t a_mesh.connect b_mesh.connect c_mesh.connect d_mesh.connect
+  - user: sv06
+    svc: network
+    create: 1733043721.059403958
+    pri: 8vi2HrfnOEZKF+NTwzsk43pT3MPmMzYFZ+jS2ETVaDNnFWT61JDidxgEyiU68ShpGBa/7A
+    pub: lzNlYIgT4p3c5QvAyVTFpEpJimlCJ8C5A/o6r3X6AjpR4KreN6H4OCSU9P0MO5TI4mGHTg
+    startup:
+      listen:
+        - tel
+        - rvd
+        - www
+      connect:
+        - a_mesh
+        - b_mesh
+        - c_mesh
+        - d_mesh
+# ms_server -d network.yaml -u sv07 -t a_mesh.connect b_mesh.connect c_mesh.connect d_mesh.connect
+  - user: sv07
+    svc: network
+    create: 1733043721.059426361
+    pri: AtLWdf6jtbvEvXtI8z6e+J4uRKcRpO8LV9C/QMxvFjEwX7xyuP21pCMzuK3loMAMMD8AIg
+    pub: bcMTsT8xYJBkaUlxU7uGj0i1JcNso8l/6oA1f1sym+5To3vQ9w0kT7wAiySzxNmMrG0xSw
+    startup:
+      listen:
+        - tel
+        - rvd
+        - www
+      connect:
+        - a_mesh
+        - b_mesh
+        - c_mesh
+        - d_mesh
+# ms_server -d network.yaml -u sv08 -t a_mesh.connect b_mesh.connect c_mesh.connect d_mesh.connect
+  - user: sv08
+    svc: network
+    create: 1733043721.059449254
+    pri: aks70mhfEQLpFvQvyHDwijNCQej9qIKpWFIYReK880y1w3KrCkrk13xcsD0q8hINxZGigw
+    pub: ++E+vAesaIpqF5gUGp5f0IVyhEYaG8UuIdjSuw09IC/l6qS1EdgD+qcosA/JWbV0U9auBg
+    startup:
+      listen:
+        - tel
+        - rvd
+        - www
+      connect:
+        - a_mesh
+        - b_mesh
+        - c_mesh
+        - d_mesh
