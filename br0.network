@@ -2,10 +2,8 @@
 Name=br0
 
 [Network]
-Address=172.23.0.1/24
+Address=172.20.0.1/24
 IPMasquerade=yes
-DHCPServer=yes
-
-[DHCPServer]
-PoolOffset=10
-PoolSize=90
+DHCPServer=no
+IgnoreCarrier=yes
+ConfigureWithoutCarrier=yes

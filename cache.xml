@@ -2,26 +2,60 @@
   <sass-config tss-records="tss_records.cf" tss-fields="tss_fields.cf"
                cfile-separator=";" cfile-path="/usr/rai/rmds-config"
                appendix-a="RDMFieldDictionary"
-               enumtype-def="enumtype.def"/>
+               enumtype-def="enumtype.def"
+               flist-map="flistmapping"/>
   <log-config log-level="minor" log-file="/var/log/raicache.log"/>
+  <cache-config disk-limit="1gb" msg-store-txlog="/var/run/msglog.dat" msg-store-partition="/var/run/msg.dat"/>
+  <admin-http address="tcp/:38080"/>
 
-  <protocol-rv listen-sass-dict="true" daemon="tcp:7500" service="3333">
-    <source subject="RSF" broadcast-feed="_TIC.RSF.&gt;" />
-  </protocol-rv>
-  <protocol-rv listen-sass-dict="true" daemon="tcp:7500" service="4444">
-    <source subject="RSF" subscriber-listen="RSF.&gt;" />
-  </protocol-rv>
+  <cluster cluster-name="rc">
+    <server server-name="raicache01"/>
+    <server server-name="raicache02"/>
 
-  <cluster cluster-name="test">
-    <server server-name="raicache01">
-      <cache-config disk-limit="1gb" msg-store-txlog="/var/run/msglog.dat" msg-store-partition="/var/run/msg.dat"/>
-      <admin-http address="tcp/:38080" />
-    </server>
-    <server server-name="raicache02">
-      <cache-config disk-limit="1gb" msg-store-txlog="/var/run/msglog.dat" msg-store-partition="/var/run/msg.dat"/>
-      <admin-http address="tcp/:38080" />
-    </server>
-    <ft-protocol-rv7 service="7555" daemon="tcp:7500"/>
+    <protocol-rv listen-sass-dict="false" daemon="tcp:7500" service="3333" network="172.20.0.0;228.3.3.3">
+      <source subject="RSF" broadcast-feed="_TIC.RSF.&gt;" />
+    </protocol-rv>
+
+    <protocol-rv listen-sass-dict="true" daemon="tcp:7500" service="4444" network="172.20.0.0;228.4.4.4">
+      <source subject="RSF" subscriber-listen="RSF.&gt;" />
+      <source subject="RDF" subscriber-listen="RDF.&gt;" />
+    </protocol-rv>
+<!--
+    <protocol-upa rssl-hostname="rdf01" rssl-serviceName="14002">
+      <source-upa subject          ="RDF"
+                  rmds-service     ="RDF"
+                  interactive-feed ="RDF.>"
+                  subj2ric         ="true"
+                  load-balance     ="true"/>
+    </protocol-upa>
+
+    <protocol-upa rssl-hostname="rdf02" rssl-serviceName="14002">
+      <source-upa subject          ="RDF"
+                  rmds-service     ="RDF"
+                  interactive-feed ="RDF.>"
+                  subj2ric         ="true"
+                  load-balance     ="true"/>
+    </protocol-upa>
+-->
+    <ft-protocol-rv7 daemon="tcp:7500" service="8888" network="172.20.0.0;228.8.8.8"/>
+  </cluster>
+
+  <cluster cluster-name="rdf">
+    <server server-name="rdf01"/>
+    <server server-name="rdf02"/>
+
+    <protocol-rv listen-sass-dict="false" daemon="tcp:7500" service="3333" network="172.20.0.0;228.3.3.3">
+      <source subject="RDF" broadcast-feed="_TIC.RSF.&gt;" />
+    </protocol-rv>
+
+    <protocol-upa rssl-serviceName="14002" load-pub-interval="1 second"
+                  not-found-stream-state="closed">
+      <source-upa subject           ="RDF"
+                  rmds-service      ="RDF"
+                  subscriber-listen ="RDF.>"
+                  subj2ric          ="true"/>
+    </protocol-upa>
+    <ft-protocol-rv7 daemon="tcp:7500" service="9999" network="172.20.0.0;228.9.9.9"/>
   </cluster>
 
 </raicache-config>

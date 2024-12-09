@@ -18,7 +18,8 @@ export cacheadmin=/usr/rai/bin/cacheadmin
 # status/event generator for hb subjects
 export pubrv=/usr/rai/bin/raipub2
 # hbs are published and subscribed, pub auto adds _TIC. prefix
-export heartbeat_subject=RSF.REC.PING.NaE
+export sub_heartbeat_subject=RDF.REC.PING.NaE
+export pub_heartbeat_subject=RSF.REC.PING.NaE
 # status are publish here
 export status_subject=HB.REC.STATUS.NaE
 # events are publish here
@@ -33,12 +34,12 @@ export hname=$(hostname)
 
 start_heartbeat_ping() {
   # publish a heartbeaat 
-  exec 3< <($pingrv $feed_network -perSec 1 -noSub -subject $heartbeat_subject > /dev/null 2>&1)
+  exec 3< <($pingrv $feed_network -initial -perSec 1 -noSub -subject $pub_heartbeat_subject > /dev/null 2>&1)
 }
 
 start_heartbeat_subrv() {
   # subscribe the heartbeat
-  exec 4< <($subrv $sub_network -subject $heartbeat_subject -noDict 2>&1)
+  exec 4< <($subrv $sub_network -subject $sub_heartbeat_subject -noDict 2>&1)
 }
 
 publish() {
@@ -106,7 +107,7 @@ read_with_timeout() {
 
   if IFS= read -r -t $current_ival line <&4 ; then
 # match hb subject
-    if [[ $line == *${heartbeat_subject}* ]] ; then
+    if [[ $line == *${sub_heartbeat_subject}* ]] ; then
       hb_count=$(($hb_count + 1))
       current_ival=$interval
       if [ $(( $hb_count % 10 )) -eq 0 ] ; then

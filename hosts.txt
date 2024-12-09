@@ -10,3 +10,7 @@ proxy01
 proxy02
 raicache01
 raicache02
+raicache05
+raicache06
+rdf01
+rdf02
