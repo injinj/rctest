@@ -45,7 +45,7 @@ such as raicache and a ms_server network defined in 'network.txt'.
 ```
   # systemctl stop systemd-resolved
   # systemctl start dnsmasq
-  # sed -i 's/^nameserver\=.*/nameserver=127.0.0.1/' /etc/resolv.conf
+  # sed -i 's/^nameserver.*/nameserver 127.0.0.1/' /etc/resolv.conf
   # sed -i 's/^\[main\]/[main]\ndns=dnsmasq/' /etc/NetworkManager/NetworkManager.conf
 ```
 
@@ -56,36 +56,60 @@ such as raicache and a ms_server network defined in 'network.txt'.
   # systemctl stop iptables
 ```
 
-- Create a Rocky 9 based machine for the containers.
+- Create a Rocky 9 based machine for the containers.  May need to check file
+  names since they contain versions.  If on a btrfs filesystem, create a
+  subvolume, this allows for efficient copy on write container filesystems
+  using the systemd template mechanism.  Newer XFS also has some features for
+  this, but no subvolume.  The btrfs subvolume create makes the directory.
 
 ```
-  # mkdir /var/lib/machines/rocky9
+  # btrfs subvolume create rocky9
+  # mkdir -p /var/lib/machines/rocky9
   # dnf install --installroot=/var/lib/machines/rocky9 \
         https://dl.rockylinux.org/pub/rocky/9/BaseOS/x86_64/os/Packages/r/rocky-release-9.5-1.2.el9.noarch.rpm \
         https://dl.rockylinux.org/pub/rocky/9/BaseOS/x86_64/os/Packages/r/rocky-repos-9.5-1.2.el9.noarch.rpm \
         https://dl.rockylinux.org/pub/rocky/9/BaseOS/x86_64/os/Packages/r/rocky-gpg-keys-9.5-1.2.el9.noarch.rpm
 ```
 
+- AlmaLinux 9 is here if preferred, it is very much like Rocky 9, otherwise skip it.
+
+```
+  # btrfs subvolume create alma9
+  # mkdir -p /var/lib/machines/alma9
+  # dnf install --installroot=/var/lib/machines/alma9 \
+        https://repo.almalinux.org/almalinux/9.5/BaseOS/x86_64/os/Packages/almalinux-gpg-keys-9.5-1.el9.x86_64.rpm
+        https://repo.almalinux.org/almalinux/9.5/BaseOS/x86_64/os/Packages/almalinux-release-9.5-1.el9.x86_64.rpm
+        https://repo.almalinux.org/almalinux/9.5/BaseOS/x86_64/os/Packages/almalinux-repos-9.5-1.el9.x86_64.rpm
+```
+
 - Copy the GPG key to the local system so that dnf can find it.
 
 ```
   # cp /var/lib/machines/rocky9/etc/pki/rpm-gpg/RPM-GPG-KEY-Rocky-9 /etc/pki/rpm-gpg/
+  # cp /var/lib/machines/alma9/etc/pki/rpm-gpg/RPM-GPG-KEY-AlmaLinux-9 /etc/pki/rpm-gpg/
 ```
 
-- Install the EPEL repo for Rocky 9.
+- Install the EPEL repo for Rocky 9 and/or AlmaLinux 9.
 
 ```
   # dnf install --installroot=/var/lib/machines/rocky9 \
-        https://dl.fedoraproject,org/pub/epel/epel-release-latest-9.noarch.rpm
+        https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
+  # dnf install --installroot=/var/lib/machines/alma9 \
+        https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
 ```
 
-- Install enough to create a root passwd and boot the container.
+- Install enough to create a root passwd and boot the container.  May need to check file names since they contain versions.
 
 ```
-  # dnf install systemd passwd dnf
+  # dnf install --installroot=/var/lib/machines/rocky9 \
+                https://dl.rockylinux.org/pub/rocky/9/BaseOS/x86_64/os/Packages/p/passwd-0.80-12.el9.x86_64.rpm \
+                https://dl.rockylinux.org/pub/rocky/9/BaseOS/x86_64/os/Packages/s/systemd-252-46.el9_5.2.0.1.x86_64.rpm
+  # dnf install --installroot=/var/lib/machines/alma9 \
+                https://repo.almalinux.org/almalinux/9.5/BaseOS/x86_64/os/Packages/passwd-0.80-12.el9.x86_64.rpm \
+                https://repo.almalinux.org/almalinux/9.5/BaseOS/x86_64/os/Packages/systemd-252-46.el9_5.2.alma.1.x86_64.rpm
 ```
 
-- Set the root passwd.
+- Set the root passwd (same for alma9 if not explicitly mentioned).
 
 ```
   # systemd-nspawn -D /var/lib/machines/rocky9 passwd
@@ -101,6 +125,7 @@ such as raicache and a ms_server network defined in 'network.txt'.
 
 ```
   # dnf install --releasever=9 rocky-release
+  # dnf install --releasever=9 almalinux-release
 ```
 
 - In the container, install dev and network utils, vim editor.
@@ -116,7 +141,7 @@ such as raicache and a ms_server network defined in 'network.txt'.
   and testing on a network since the containers can have a common bind mount with the host that has the binaries.
 
 ```
-  # curl -s https://www.raitechnology.com/repo/raitechnology_epel-9-x86_64.repo -o /etc/yum.repos.d/raitechnology_epel-9-x86_64.repo
+  # curl -s https://www.raitechnology.com/repo/raitechnology_epel-x86_64.repo -o /etc/yum.repos.d/raitechnology_epel-x86_64.repo
   # dnf install raims omm
 ```
 
@@ -130,17 +155,29 @@ such as raicache and a ms_server network defined in 'network.txt'.
 ```
   # useradd chris
   # usermod -G wheel chris
+  # passwd chris
   # visudo
 ```
 
-- In the container, enable systemd-networkd and sshd so you can use ssh to login
+- In the container, enable systemd-networkd and sshd so you can use ssh to
+  login.  The 172.20.0.1 address is defined in the
+  /etc/systemd/network/br0.network file, it causes dns to go through dnsmasq.
+  systemd-networkd will fail unless the nspawn template is used or
+  systemd-nspawn with argument -U is used.
 
 ```
   # systemctl enable systemd-networkd
   # systemctl enable sshd
+  # sed -i 's/^nameserver.*/nameserver 172.20.0.1/' /etc/resolv.conf
 ```
 
-- Exit the container with ctrl-] ctrl-] ctrl-]
+- Exit the container with exit and ctrl-] ctrl-] ctrl-] at the login prompt.
+
+```
+  # exit
+  rocky9 login:
+  Container rocky9 terminated by signal KILL.
+```
 
 - Copy the network config for the container.
 
@@ -148,13 +185,35 @@ such as raicache and a ms_server network defined in 'network.txt'.
   # cp 20-wired.network /var/lib/machines/rocky9/etc/systemd/network/
 ```
 
-- Copy the systemd nspawn template into /etc/systemd/system.
+- Copy the systemd nspawn template or link it into /etc/systemd/system.  Note
+  that this causes machines to use the rocky9 copy on write filesystem if the
+  /var/lib/machines/<hostname> does not exist.  Change it if alma9 or some other
+  machine filesystem is desired.
 
 ```
   # cp 'systemd-nspawn@.service' /etc/systemd/system/
 ```
 
-- Increase the number if inodes that can be open, the default is too low.
+- Optionally install gcc-toolset-13, since RHEL gcc-11 does not have a static c++
+  library (libsupc++) for x86_64.  Check with cmd "dnf provides */libsupc++.a".  Can
+  also use the 'scl' command instead of update-alternatives.
+
+```
+  # systemctl start systemd-nspawn@rocky9.service
+  # ssh rocky9
+  # sudo su
+  # dnf install gcc-toolset-13
+  # mv /usr/bin/gcc /usr/bin/gcc11
+  # mv /usr/bin/g++ /usr/bin/g++11
+  # mv /usr/bin/cpp /usr/bin/cpp11
+  # update-alternatives --install /usr/bin/gcc gcc /opt/rh/gcc-toolset-13/root/usr/bin/gcc 60
+  # update-alternatives --install /usr/bin/g++ g++ /opt/rh/gcc-toolset-13/root/usr/bin/g++ 60
+  # update-alternatives --install /usr/lib/cpp cpp /opt/rh/gcc-toolset-13/root/usr/bin/cpp 60
+  # exit
+  # systemctl stop systemd-nspawn@rocky9.service
+```
+
+- Increase the number if inodes that can be open, the default is too low for dozens of containers.
 
 ```
   # cp 60-fs-inotify.conf /etc/sysctl.d/
