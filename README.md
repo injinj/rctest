@@ -134,7 +134,7 @@ such as raicache and a ms_server network defined in 'network.txt'.
   # dnf install openssh-server traceroute iputils rsync telnet sudo procps-ng htop
   # dnf install iproute net-tools pcre2 pcre2-utf32 liblzf-devel make gcc-c++ kmod
   # dnf install git openssl-devel pcre2-devel chrpath zlib-devel libbsd-devel bind-utils
-  # dnf install which vim vi gdb c-ares-devel rpm-build byacc frr systemd-networkd
+  # dnf install which vim vi gdb c-ares-devel rpm-build byacc flex frr systemd-networkd
 ```
 
 - In the container, install the Rai open source.  Can also clone the repos and compile them, which allows for rapid development
