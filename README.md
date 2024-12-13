@@ -28,7 +28,7 @@ such as raicache and a ms_server network defined in 'network.txt'.
 
 ```
   # cp br0.conf /etc/dnsmask.d/
-  # sed -i 's/^server\=.*/server=4.4.4.4/' /etc/dnsmask.d/br0.conf
+  # sed -i 's/^server\=.*/server=8.8.8.8/' /etc/dnsmask.d/br0.conf
 ```
 
 - Start the network.  Enable if wanted on boot.
