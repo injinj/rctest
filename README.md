@@ -63,7 +63,7 @@ such as raicache and a ms_server network defined in 'network.txt'.
   this, but no subvolume.  The btrfs subvolume create makes the directory.
 
 ```
-  # btrfs subvolume create rocky9
+  # btrfs subvolume create /var/lib/machines/rocky9
   # mkdir -p /var/lib/machines/rocky9
   # dnf install --installroot=/var/lib/machines/rocky9 \
         https://dl.rockylinux.org/pub/rocky/9/BaseOS/x86_64/os/Packages/r/rocky-release-9.5-1.2.el9.noarch.rpm \
@@ -74,7 +74,7 @@ such as raicache and a ms_server network defined in 'network.txt'.
 - AlmaLinux 9 is here if preferred, it is very much like Rocky 9, otherwise skip it.
 
 ```
-  # btrfs subvolume create alma9
+  # btrfs subvolume create /var/lib/machines/alma9
   # mkdir -p /var/lib/machines/alma9
   # dnf install --installroot=/var/lib/machines/alma9 \
         https://repo.almalinux.org/almalinux/9.5/BaseOS/x86_64/os/Packages/almalinux-gpg-keys-9.5-1.el9.x86_64.rpm
@@ -254,6 +254,7 @@ such as raicache and a ms_server network defined in 'network.txt'.
 ```
   # systemctl start systemd-nspawn@compile.service
   # git clone https://github.com/raitechnology/build
+  # make -C ${PWD}/build clone
   # ssh compile make -C ${PWD}/build
   # systemctl stop systemd-nspawn@compile.service
   # ln -s ${PWD}/build/raims/ROCKY9.5_x86_64/bin/ms_server /var/lib/machines/rocky9/usr/bin/
